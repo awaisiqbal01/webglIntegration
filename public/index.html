@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Unity WebGL Player | Translate</title>
+    <link rel="stylesheet" href="styles/style.css"/>
+    
+    <!-- <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <link rel="stylesheet" href="TemplateData/style.css"> -->
+  </head>
+  <body>
+    <div class="overlay" id="loadingOverlay">
+      <div class="loader"></div>
+    </div>  
+    <div class="main-container">
+      <div id="unity-container" class="unity-desktop">
+        <canvas id="unity-canvas" width=960 height=600 tabindex="-1"></canvas>
+      </div>
+      <div class="sample-text-container">
+        <div class="sample-text"> Hello</div>
+        <div class="sample-text"> How are you</div>
+        <div class="sample-text"> try me i am a demo text</div>
+        <div class="sample-text"> How is weather today</div>
+        <div class="sample-text"> Can you read ABC?</div>
+        <div class="sample-text">I can read 1 2 3</div>
+      </div>
+    </div>
+
+    <script src="https://webglcdn-7hd4r9e1l-webgl-integration-9440b57f.vercel.app/index.js"></script>
+    <script>
+      let requestSent = false;
+      showLoader();
+      checkandInitilizeUnity();
+      document.addEventListener('mouseover', (event) => {
+        if (event.target.classList.contains('sample-text')) {
+          console.log('Mouseover on:', event.target);
+          if(requestSent) return;
+          requestSent = true;
+          playPose(event.target.textContent, playPoseCallback);
+        }
+      });
+
+
+      function playPoseCallback(){
+        requestSent = false;
+        hideLoader();
+      }
+      function showLoader() {
+          document.getElementById('loadingOverlay').style.display = 'flex';
+      }
+      function hideLoader() {
+          document.getElementById('loadingOverlay').style.display = 'none';
+      }
+      function checkandInitilizeUnity() {
+        if(typeof initWebgl !== 'function') {
+          setTimeout(() => {
+            checkandInitilizeUnity();
+          }, 1000);
+          return;
+        }
+        initWebgl(); //document.querySelector("#unity-canvas")
+      setTimeout(() => {
+        // toggleWebgl();
+        requestSent =  true;
+        playPose("Hello, Unity!", playPoseCallback);
+      }, 1000);
+      }
+    </script>
+  </body>
+</html>
