@@ -20,7 +20,7 @@ function initWebgl(key = '783bc790d5fa33a4aea237b54b8226d8-678907f2f2710732f532b
     
     makeCanvasDraggable(canvas);
 
-    var buildUrl = "Build";
+    var buildUrl = `${location.origin}/Build`;
     var loaderUrl = buildUrl + "/webglbuild.loader.js";
     var config = {
         dataUrl: buildUrl + "/webglbuild.data",
