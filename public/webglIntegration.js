@@ -19,8 +19,6 @@ async function initWebgl(key = '783bc790d5fa33a4aea237b54b8226d8-678907f2f271073
     document.body.appendChild(canvas);
     
     makeCanvasDraggable(canvas);
-    // const currentScriptUrl = await getCurrentScriptBaseUrl();
-    console.log('------------------build path', currentScriptUrl);
     var buildUrl = `https://webgl-integration-h1ngdb69q-awais-projects-4c25e204.vercel.app/Build`;
     var loaderUrl = buildUrl + "/webglbuild.loader.js";
     var config = {
@@ -106,25 +104,4 @@ function handleWebglError (error){
         unityCallback();
     }
     console.error('WEBGL-ERROR ----> ', error);
-}
-
-function getCurrentScriptBaseUrl() {
-    var scriptSrc = "";
-    if (document.currentScript) {
-        scriptSrc = document.currentScript.src;
-    } else {
-        var scripts = document.getElementsByTagName("script");
-        for (var i = 0; i < scripts.length; i++) {
-            if (scripts[i].src.includes("webglIntegration.js")) {
-                scriptSrc = scripts[i].src;
-                break;
-            }
-        }
-    }
-
-    if (!scriptSrc) {
-        console.error("Failed to determine script source.");
-        return;
-    }
-    return baseURL = new URL(scriptSrc).origin;
 }
