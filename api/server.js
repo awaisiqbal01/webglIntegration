@@ -5,6 +5,7 @@ const app = express();
 const PORT = 2025;
 
 app.use(express.static(path.join(__dirname, "../public/")));
+app.use("/Build", express.static(path.join(__dirname, "../public/Build"))); 
 
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, ".../public/index.html"));
