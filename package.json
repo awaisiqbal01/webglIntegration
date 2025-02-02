@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "webglIntegration.js",
   "scripts": {
-    "start": "node server.js", 
+    "start": "node server.js",
     "vercel-build": "npm install"
   },
   "keywords": [],
