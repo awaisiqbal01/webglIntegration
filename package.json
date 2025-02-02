@@ -1,7 +1,7 @@
 {
   "name": "cdnintegrateion",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "webglIntegration.js",
   "scripts": {
     "start": "node server.js", 
     "vercel-build": "npm install"
