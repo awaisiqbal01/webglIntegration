@@ -19,7 +19,7 @@ function initWebgl(key = '783bc790d5fa33a4aea237b54b8226d8-678907f2f2710732f532b
     document.body.appendChild(canvas);
     
     makeCanvasDraggable(canvas);
-
+    console.log('------------------build path', location.origin);
     var buildUrl = `${location.origin}/Build`;
     var loaderUrl = buildUrl + "/webglbuild.loader.js";
     var config = {
