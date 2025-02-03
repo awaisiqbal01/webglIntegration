@@ -15,5 +15,20 @@
       "src": "/(.*)",
       "dest": "api/server.js"
     }
+  ],
+  "headers": [
+    {
+      "source": "/Build/:path*",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, OPTIONS"
+        }
+      ]
+    }
   ]
 }
