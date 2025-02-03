@@ -41,14 +41,12 @@ async function initWebgl(key = '783bc790d5fa33a4aea237b54b8226d8-678907f2f271073
             alert(message);
         });
     };
-
     document.body.appendChild(script);
 }
 
 
 function makeCanvasDraggable(canvas) {
     let offsetX, offsetY, isDragging = false;
-
     canvas.addEventListener('mousedown', (event) => {
         isDragging = true;
         offsetX = event.clientX - canvas.offsetLeft;
